@@ -1,0 +1,17 @@
+FEATURES TO ADD
+
+
+Get HTML and JS communicating -> DONE
+Get HTML storing data into JS -> DONE
+
+Write account creation
+	Check if account exists
+		JS to HTML DOM notification
+	Enforce password strength
+
+SESSION MANAGEMENT
+Multiple pages, all display, logged in as USERNAME
+Logout button
+-Have a dashboard
+
+Allow users to write something that will stay on HTML
