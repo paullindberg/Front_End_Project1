@@ -1,62 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
-    <title>Reddit-Lite</title>
-  </head>
-  <body>
+<!doctype html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>Ghetto Message</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootst
+rap/3.3.6/css/bootstrap.min.css">
+ </head>
+ <body class="container">
     <header>
-      <nav class="navbar navbar-expand-sm">
-        <h1 class="page-name">reddit-lite</h1>
-      </nav>
+       <h1>Ghetto Message™</h1>
     </header>
+    <section>
+      <div class="panel panel-default">
+         <div class = "panel-body">
+            <form login-input="form">
+               <div class="form-group">
+                  <label for="userForm">Username</label>
+                  <input class="form-control" name="username" id="userForm" autofocus required>
+                  <label for="passForm">Password</label>
+                  <input class="form-control" name="password" id ="passForm" type="password" required>
+               </div>
+               <button type="submit" class="btn btn-default">Submit</button>
+               <button type="reset" class="btn btn-default">Clear</button>
+            </form>
+            <br>
+            <a href="createAccount.html"><button class="btn btn-default">Create Account</button></a>
 
-    <section class="container-fluid">
-      <section class="row justify-content-center">
-        <section class="col-12 col-sm-6 col-sm-3">
-          <form class="form-signin">
-            <h3 class="form-signin-heading text-center">Sign In</h3>
-            <br />
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="username"
-                placeholder="Username"
-                required
-                autofocus
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="password"
-                class="form-control"
-                name="password"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <br />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-              Sign In
-            </button>
-          </form>
-        </section>
-      </section>
+
+
+         </div>
+
+
+
+      </div>
+
+
+
     </section>
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+ charset="utf-8"></script>
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"></script>
+    <script src="scripts/handler.js" charset="utf-8"></script>
+    <script src="scripts/main.js" charset="utf-8"></script>
+ </body>
 </html>
