@@ -36,6 +36,25 @@ if (!$db) {
     $name = mysqli_real_escape_string($db, $_POST['name']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
 
+
+
+
+    //////////////////////////////////////////
+    // sql to create table
+    $sql = "CREATE TABLE IF NOT EXISTS user_info (
+    username VARCHAR(11) NOT NULL PRIMARY KEY,
+    password TEXT NOT NULL,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL
+    )";
+
+    if ($db->query($sql) === TRUE) {
+      
+    } else {
+        echo "Error creating table: " . $db->error;
+      }
+    //////////////////////////////////////////
+
   	
 
     //insert values into db

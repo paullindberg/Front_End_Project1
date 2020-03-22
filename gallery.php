@@ -41,6 +41,25 @@ if (!$db) {
 
     //insert values into db
     //image BLOB?
+
+
+    //////////////////////////////////////////
+    // sql to create table
+    $sql = "CREATE TABLE IF NOT EXISTS images (
+    id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    image varchar(100) NOT NULL,
+    name TEXT NOT NULL
+    )";
+
+    if ($db->query($sql) === TRUE) {
+      
+    } else {
+        echo "Error creating table: " . $db->error;
+      }
+    //////////////////////////////////////////
+
+
+
   	$sql = "INSERT INTO images (image, name) VALUES ('$image','$name')";
 
 
