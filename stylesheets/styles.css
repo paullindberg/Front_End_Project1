@@ -1,0 +1,27 @@
+body {
+  background: #dae0e6;
+}
+
+.navbar {
+  background: white;
+}
+.page-name {
+  color: #ff4500;
+  font-size: 35px;
+}
+
+.form-signin {
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 0px;
+}
+
+.form-signin .form-signin-heading .form-signin .checkbox {
+  margin-bottom: 30px;
+}
+
+.form-signin input[type="text"],
+.form-sigin input[type="password"] {
+  margin-bottom: 20px;
+}
