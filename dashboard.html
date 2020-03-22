@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>DashBoard</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootst
+rap/3.3.6/css/bootstrap.min.css">
+ </head>
+ <body class="container">
+    <header>
+       <h1 id="landing"></h1>
+       <script>
+           document.getElementById("landing").innerHTML = "Logged in as " + sessionStorage.sessionName;
+       </script>
+       <button onclick="Logout()" class="btn btn-default">Logout</button>
+
+
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
+ charset="utf-8"></script>
+ <script src="scripts/dashboard.js" charset="utf-8"></script>
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
+    <script src="scripts/datastore.js" charset="utf-8"></script>
+    <script src="scripts/handler.js" charset="utf-8"></script>
+
+ </body>
+</html>
