@@ -7,15 +7,11 @@
 rap/3.3.6/css/bootstrap.min.css">
  </head>
  <body class="container">
-    <header>
-       <h1 id="landing"></h1>
-       <script>
-           document.getElementById("landing").innerHTML = "Logged in as " + sessionStorage.sessionName;
-       </script>
-       <button onclick="Logout()" class="btn btn-default">Logout</button>
+   <h1 id="landing"></h1>
+   <button onclick="CreateTopic()" class="btn btn-default">Create Topic</button>
+   <br>
+   <button onclick="Logout()" class="btn btn-default">Logout</button>
 
-
-    </header>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
  charset="utf-8"></script>
