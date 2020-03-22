@@ -59,7 +59,7 @@ if (!$db) {
     if(mysql_num_rows($query) > 0){
       echo 'Username already exists';
     }else{
-      $sql = "INSERT INTO users (username, password, name, email) VALUES ('$username','$password', '$name', 'email')";
+      $sql = "INSERT INTO user_info (username, password, name, email) VALUES ('$username','$password', '$name', 'email')";
       header("location:index.html");
       mysqli_query($db, $sql);
     }
