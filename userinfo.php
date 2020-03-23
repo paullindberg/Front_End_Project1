@@ -55,14 +55,21 @@ if (!$db) {
       }
     //////////////////////////////////////////
 
-  	
+    $query = mysqli_query($db, "SELECT * FROM user_info WHERE username='$username'");
+    if(mysqli_num_rows($query) > 0){
+      echo 'Username already exists';
+    }else{
+      $sql = "INSERT INTO user_info (username, password, name, email) VALUES ('$username','$password', '$name', 'email')";
+      header("location:index.html");
+      mysqli_query($db, $sql);
+    }
 
     //insert values into db
     
-  	$sql = "INSERT INTO user_info (username, password, name, email) VALUES ('$username','$password', '$name', 'email')";
+  	//$sql = "INSERT INTO user_info (username, password, name, email) VALUES ('$username','$password', '$name', 'email')";
 
 
-  	mysqli_query($db, $sql);
+  	//mysqli_query($db, $sql);
   	
   }
 
