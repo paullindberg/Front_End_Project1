@@ -7,7 +7,7 @@ function Logout(){
 }
 
 function CreateTopic(){
-
+alert("We cookin");
 
 
     

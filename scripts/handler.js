@@ -7,42 +7,63 @@
     }
 
     Handler.prototype.createAccount = function(accInfo){
-        console.log("Creating account: " + accInfo.username);
-        this.db.addEntry(accInfo);
+        var accountAvail = 0;
+        $.ajax({ url: 'ajax.php',
+        async: false,
+        data: {functioncall: 'createUser', username: accInfo.username,
+        password: accInfo.password, name: accInfo.name, email: accInfo.email},
+         type: 'post',
+         success: function(output) {
+                      console.log("Create account: " + output);
+                      accountAvail = output;
+         }
+});
 
-        sessionStorage.sessionName = accInfo.username;
-        window.location.href = "dashboard.html"
+        if (accountAvail == "1"){
+            console.log("Creating account: " + accInfo.username);
+            this.db.addEntry(accInfo);
+            sessionStorage.sessionName = accInfo.username;
+            window.location.href = "dashboard.html";
+        }
+        else{
+            alert("Username is unavailable");
+        }
+        
+
+
     }
+
+    
 
     Handler.prototype.verifyAccountName = function(data){
         console.log("In the verify function");
-        var accountFound = false;
-        var targetIndex = null;
-        for (var i = 0; i < this.db.account_list.length; ++i){
-            if (data.username === this.db.account_list[i].username){
-                console.log("Account found");
-                accountFound = true;
-                targetIndex = i;
-                break;
-            }
-        }
+        var accountFound;
 
-        if(!accountFound){
-            alert("Error: User could not be found");
-            return;
-        }
+        $.ajax({ url: 'ajax.php',
+        async: false,
+        data: {functioncall: 'login', username: data.username,
+        password: data.password},
+         type: 'post',
+         success: function(output) {
+                      console.log("Login result: " + output);
+                      accountFound = output;
+         }
+});
 
-        if (data.password === this.db.account_list[targetIndex].password){
+        console.log(accountFound);
+        if (accountFound == 1){
             console.log("password verified")
             sessionStorage.sessionName = data.username;
             window.location.href = "dashboard.html"
         }
-        else{
-            alert("Invalid Passowrd");
+        else if (accountFound == 0){
+            alert("Invalid Password");
             return;
         }
-
-
+        else if(accountFound == -1){
+            alert("Error: User could not be found");
+            return;
+        }
 
     }
 
