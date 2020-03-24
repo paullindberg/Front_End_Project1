@@ -7,7 +7,7 @@
     }
 
     Handler.prototype.createAccount = function(accInfo){
-        var accountAvail = 0;
+        var accountAvail = null;
         $.ajax({ url: 'ajax.php',
         async: false,
         data: {functioncall: 'createUser', username: accInfo.username,
@@ -23,10 +23,13 @@
             console.log("Creating account: " + accInfo.username);
             this.db.addEntry(accInfo);
             sessionStorage.sessionName = accInfo.username;
-            window.location.href = "dashboard.html";
+            window.location.href = "dashboard.php";
+        }
+        else if (accountAvail == "0"){
+            alert("Username is unavailable");
         }
         else{
-            alert("Username is unavailable");
+            alert("Error: No result obtained from AJAX");
         }
         
 
@@ -54,7 +57,7 @@
         if (accountFound == 1){
             console.log("password verified")
             sessionStorage.sessionName = data.username;
-            window.location.href = "dashboard.html"
+            window.location.href = "dashboard.php"
         }
         else if (accountFound == 0){
             alert("Invalid Password");
