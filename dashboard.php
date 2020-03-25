@@ -17,6 +17,7 @@ rap/3.3.6/css/bootstrap.min.css">
       <header>
          <nav class="navbar">
          <h1 class="page-name">reddit-lite</h1>
+         <h1 class="dashboard-heading">dashboard</h1>
          </nav>
       </header>
 
