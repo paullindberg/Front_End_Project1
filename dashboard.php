@@ -12,7 +12,6 @@
 rap/3.3.6/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="stylesheets/dashboard.css" />
  </head>
- <!-- <body class="container"> -->
  <body>
       <header>
          <nav class="navbar">
@@ -23,7 +22,6 @@ rap/3.3.6/css/bootstrap.min.css">
 
       <section class="container-fluid">
       <h3 id="landing"></h3>
-      <!-- <button onclick="Logout()" class="btn btn-default">Logout</button> -->
       <button onclick="Logout()" class="btn btn-lg btn-primary btn-block">Logout</button>
       <br>
       <br>
@@ -86,7 +84,6 @@ function getPosts(){
        }
     }
     else{
-      // echo "There are no posts!";
       echo "<h2 class='no-posts'>There are no posts!</h2>";
    }
     mysqli_close($db);
