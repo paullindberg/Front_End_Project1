@@ -10,23 +10,40 @@
  crossorigin="anonymous"></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootst
 rap/3.3.6/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="stylesheets/dashboard.css" />
  </head>
- <body class="container">
-   <h1 id="landing"></h1>
-   <button onclick="Logout()" class="btn btn-default">Logout</button>
-   <br>
-   <br>
+ <!-- <body class="container"> -->
+ <body>
+      <header>
+         <nav class="navbar">
+         <h1 class="page-name">reddit-lite</h1>
+         <h1 class="dashboard-heading">dashboard</h1>
+         </nav>
+      </header>
 
-   <form id="topicForm" method="post">
-      <label for="topicName" >Subject:</label>
+      <section class="container-fluid">
+      <h3 id="landing"></h3>
+      <!-- <button onclick="Logout()" class="btn btn-default">Logout</button> -->
+      <button onclick="Logout()" class="btn btn-lg btn-primary btn-block">Logout</button>
       <br>
-      <input type="text" name="postTitle" id="topicName">
       <br>
-      <br>
-      <textarea name="comment" id="commentField"></textarea>
-      <br>
-      <input type="submit" value="Create Topic" name="submitTopic" onclick="sendToServer()">
-</form>
+
+      <form id="topicForm" method="post">
+         <label for="topicName" class="input-labels">Subject:</label>
+         <br>
+         <!-- <input type="text" name="postTitle" id="topicName"> -->
+         <input type="text" name="postTitle" id="topicName" class="form-control input-lg" placeholder="Enter subject">
+         <br>
+         <br>
+         <label class="input-labels">Text</label>
+         <!-- <textarea name="comment" id="commentField"></textarea> -->
+         <textarea name="comment" id="commentField" placeholder="Enter text" class="form-control input-lg"></textarea>
+         <br>
+         <!-- <input type="submit" value="Create Topic" name="submitTopic" onclick="sendToServer()"> -->
+         <input type="submit" value="Create Topic" class="btn btn-success btn-block" name="submitTopic" onclick="sendToServer()">
+      </form>
+      </section>
+</body>
 
 
    <br>
@@ -68,11 +85,12 @@ function getPosts(){
           $title = $row['title'];
           $poster = $row['poster'];
           $url = "posts/" . $row['url'];
-          echo "<a href=$url><h3>$title</h3> by: $poster</a>";
+          echo "<div class='post-links'><a href=$url><h3>$title</h3> by: $poster</a></div>";
        }
     }
     else{
-      echo "There are no posts!";
+      // echo "There are no posts!";
+      echo "<h2 class='no-posts'>There are no posts!</h2>";
    }
     mysqli_close($db);
 
