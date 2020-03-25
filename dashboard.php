@@ -31,15 +31,12 @@ rap/3.3.6/css/bootstrap.min.css">
       <form id="topicForm" method="post">
          <label for="topicName" class="input-labels">Subject:</label>
          <br>
-         <!-- <input type="text" name="postTitle" id="topicName"> -->
          <input type="text" name="postTitle" id="topicName" class="form-control input-lg" placeholder="Enter subject">
          <br>
          <br>
          <label class="input-labels">Text</label>
-         <!-- <textarea name="comment" id="commentField"></textarea> -->
          <textarea name="comment" id="commentField" placeholder="Enter text" class="form-control input-lg"></textarea>
          <br>
-         <!-- <input type="submit" value="Create Topic" name="submitTopic" onclick="sendToServer()"> -->
          <input type="submit" value="Create Topic" class="btn btn-success btn-block" name="submitTopic" onclick="sendToServer()">
       </form>
       </section>
