@@ -89,9 +89,34 @@ function addTopic($title, $message, $poster, $date){
    $resultsCheck = mysqli_num_rows($value);
    $index = strval($resultsCheck + 1);
    $url = $poster . $index . '.php';
-   $sql = "INSERT INTO posts (poster, time, title, url) VALUES ('$poster','$date', '$title', '$url')";
+   $sql = "INSERT INTO posts (poster, time, title, url, header) VALUES ('$poster','$date', '$title', '$url', '$message')";
    mysqli_query($db, $sql);
    mysqli_close($db);
+   $content = "<?php\n
+   \$url = '$url';
+   include 'scripts.php';
+   displayContent(\$url);
+   ?>
+   
+
+   <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>
+<script src=\"pages.js\" charset=\"utf-8\"></script>
+
+<br>
+<br>
+<form id=\"topicForm\" method=\"post\">
+      <textarea name=\"comment\" id=\"commentField\"></textarea>
+      <br>
+      <input type=\"submit\" value=\"Post\" name=\"submitTopic\" onclick=\"sendToServer()\">
+</form>
+<button onclick=\"goBack()\">Back</button>
+   
+   
+   ";
+
+   $file = fopen("posts/".$url, "w") or die("Unable to open file");
+   fwrite($file, $content);
+   fclose($myfile);
    
 
 

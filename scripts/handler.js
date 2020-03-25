@@ -9,17 +9,21 @@
     Handler.prototype.createAccount = function(accInfo){
         var accountAvail = null;
         $.ajax({ url: 'ajax.php',
-        async: false,
         data: {functioncall: 'createUser', username: accInfo.username,
         password: accInfo.password, name: accInfo.name, email: accInfo.email},
          type: 'post',
          success: function(output) {
                       console.log("Create account: " + output);
                       accountAvail = output;
-         }
+         },
+         error: function(error){
+             console.log(error);
+         },
 });
 
         if (accountAvail == "1"){
+            
+
             console.log("Creating account: " + accInfo.username);
             this.db.addEntry(accInfo);
             sessionStorage.sessionName = accInfo.username;
