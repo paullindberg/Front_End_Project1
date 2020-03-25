@@ -145,7 +145,8 @@ if(isset($_POST['functioncall']) && !empty($_POST['functioncall'])) {
          echo 0;
 
          break;
-       case 'login':
+       case 'testPromise':
+         echo "Hello from dashboard.php";
          break;
        }
            

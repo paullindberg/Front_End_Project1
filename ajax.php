@@ -88,6 +88,9 @@ if(isset($_POST['functioncall']) && !empty($_POST['functioncall'])) {
                 echo -1;
             }
             break;
+        case 'testPromise':
+            echo "hi";
+        break;
         }
             
 

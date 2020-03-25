@@ -7,36 +7,16 @@
     }
 
     Handler.prototype.createAccount = function(accInfo){
-        var accountAvail = null;
-        $.ajax({ url: 'ajax.php',
-        data: {functioncall: 'createUser', username: accInfo.username,
-        password: accInfo.password, name: accInfo.name, email: accInfo.email},
-         type: 'post',
-         success: function(output) {
-                      console.log("Create account: " + output);
-                      accountAvail = output;
-         },
-         error: function(error){
-             console.log(error);
-         },
-});
+        console.log(accInfo.username, accInfo.password, accInfo.name, accInfo.email);
 
-        if (accountAvail == "1"){
-            
 
-            console.log("Creating account: " + accInfo.username);
-            this.db.addEntry(accInfo);
-            sessionStorage.sessionName = accInfo.username;
-            window.location.href = "dashboard.php";
-        }
-        else if (accountAvail == "0"){
-            alert("Username is unavailable");
-        }
-        else{
-            alert("Error: No result obtained from AJAX");
-        }
-        
-
+        asyncCreate(accInfo.username, accInfo.password, accInfo.name, accInfo.email)
+        .then(data => {
+          verify(data, accInfo)
+        })
+        .catch(error => {
+          console.log(error)
+        })
 
     }
 
@@ -91,3 +71,39 @@
     App.Handler = Handler;
     window.App = App;
    })(window);
+
+
+
+   function asyncCreate(user, pass, name, email) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: 'ajax.php',
+        type: 'POST',
+        data: {
+            functioncall: 'createUser', username: user, password: pass, name: name, email: email
+        },
+        success: function(data) {
+          resolve(data)
+        },
+        error: function(error) {
+          reject(error)
+        },
+      })
+    })
+  }
+
+
+  function verify(data, accInfo){
+    console.log("Verifying...")
+    if (data == "1"){
+        console.log("Creating account: " + accInfo.username );
+        sessionStorage.sessionName = accInfo.username;
+        window.location.href = "dashboard.php";
+    }
+    else if (data == "0"){
+        alert("Username is unavailable");
+    }
+    else{
+        alert("Error: No result obtained from AJAX");
+    }
+  }
