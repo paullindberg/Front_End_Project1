@@ -32,7 +32,7 @@ function sendToServer(){
 
 function Logout(){
     sessionStorage.sessionName = "";
-    window.location.href = "index.html"
+    window.location.href = "index.php"
 
 }
 
