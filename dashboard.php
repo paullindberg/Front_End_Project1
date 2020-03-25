@@ -10,23 +10,39 @@
  crossorigin="anonymous"></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootst
 rap/3.3.6/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
  </head>
- <body class="container">
-   <h1 id="landing"></h1>
-   <button onclick="Logout()" class="btn btn-default">Logout</button>
-   <br>
-   <br>
+ <!-- <body class="container"> -->
+ <body>
+      <header>
+         <nav class="navbar">
+         <h1 class="page-name">reddit-lite</h1>
+         </nav>
+      </header>
 
-   <form id="topicForm" method="post">
-      <label for="topicName" >Subject:</label>
+      <section class="container-fluid">
+      <h3 id="landing"></h3>
+      <!-- <button onclick="Logout()" class="btn btn-default">Logout</button> -->
+      <button onclick="Logout()" class="btn btn-lg btn-primary btn-block">Logout</button>
       <br>
-      <input type="text" name="postTitle" id="topicName">
       <br>
-      <br>
-      <textarea name="comment" id="commentField"></textarea>
-      <br>
-      <input type="submit" value="Create Topic" name="submitTopic" onclick="sendToServer()">
-</form>
+
+      <form id="topicForm" method="post">
+         <label for="topicName" class="input-labels">Subject:</label>
+         <br>
+         <!-- <input type="text" name="postTitle" id="topicName"> -->
+         <input type="text" name="postTitle" id="topicName" class="form-control input-lg" placeholder="Enter subject">
+         <br>
+         <br>
+         <label class="input-labels">Text</label>
+         <!-- <textarea name="comment" id="commentField"></textarea> -->
+         <textarea name="comment" id="commentField" placeholder="Enter text" class="form-control input-lg"></textarea>
+         <br>
+         <!-- <input type="submit" value="Create Topic" name="submitTopic" onclick="sendToServer()"> -->
+         <input type="submit" value="Create Topic" class="btn btn-success btn-block" name="submitTopic" onclick="sendToServer()">
+      </form>
+      </section>
+</body>
 
 
    <br>
@@ -56,7 +72,7 @@ function display()
 
 
 function getPosts(){
-   $db = mysqli_connect("localhost", "root", "", "project");
+   $db = mysqli_connect("localhost", "root", "winsongin", "project");
     if (!$db) {
         die("Connection to db failed: " . mysqli_connect_error());
       }
@@ -72,7 +88,8 @@ function getPosts(){
        }
     }
     else{
-      echo "There are no posts!";
+      // echo "There are no posts!";
+      echo "<h2 class='no-posts'>There are no posts!</h2>";
    }
     mysqli_close($db);
 
@@ -80,7 +97,7 @@ function getPosts(){
 }
 
 function addTopic($title, $message, $poster, $date){
-   $db = mysqli_connect("localhost", "root", "", "project");
+   $db = mysqli_connect("localhost", "root", "winsongin", "project");
    if (!$db) {
        die("Connection to db failed: " . mysqli_connect_error());
      }
