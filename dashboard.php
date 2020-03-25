@@ -73,7 +73,7 @@ function display()
 
 
 function getPosts(){
-   $db = mysqli_connect("localhost", "root", "winsongin", "project");
+   $db = mysqli_connect("localhost", "root", "", "project");
     if (!$db) {
         die("Connection to db failed: " . mysqli_connect_error());
       }
@@ -85,7 +85,7 @@ function getPosts(){
           $title = $row['title'];
           $poster = $row['poster'];
           $url = "posts/" . $row['url'];
-          echo "<a href=$url><h3>$title</h3> by: $poster</a>";
+          echo "<div class='post-links'><a href=$url><h3>$title</h3> by: $poster</a></div>";
        }
     }
     else{
@@ -98,7 +98,7 @@ function getPosts(){
 }
 
 function addTopic($title, $message, $poster, $date){
-   $db = mysqli_connect("localhost", "root", "winsongin", "project");
+   $db = mysqli_connect("localhost", "root", "", "project");
    if (!$db) {
        die("Connection to db failed: " . mysqli_connect_error());
      }
