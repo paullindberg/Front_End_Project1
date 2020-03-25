@@ -1,0 +1,37 @@
+body {
+  background: #dae0e6;
+}
+
+.navbar {
+  background: white;
+}
+.page-name {
+  display: inline-block;
+  color: #ff4500;
+  font-size: 35px;
+}
+
+.dashboard-heading {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.input-labels {
+  font-size: 20px;
+}
+
+#landing {
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+.no-posts {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+.container-fluid {
+  margin: 30px 100px 0px 100px;
+}
