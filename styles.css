@@ -6,14 +6,8 @@ body {
   background: white;
 }
 .page-name {
-  display: inline-block;
   color: #ff4500;
   font-size: 35px;
-}
-
-.dashboard-heading {
-  display: inline-block;
-  margin-left: 20px;
 }
 
 .form-signin {
@@ -22,24 +16,4 @@ body {
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0px 0px 10px 0px;
-}
-
-.input-labels {
-  font-size: 20px;
-}
-
-#landing {
-  display: flex;
-  justify-content: center;
-  color: black;
-}
-
-.no-posts {
-  display: flex;
-  justify-content: center;
-  color: red;
-}
-
-.container-fluid {
-  margin: 30px 100px 0px 100px;
 }
